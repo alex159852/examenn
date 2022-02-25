@@ -1,0 +1,59 @@
+<div>
+    <label class="">pendiente
+    <input type="radio" (click)="actualizar('pendiente')" checked name="estado">
+</label>
+<label class="">Proceso
+    <input type="radio" (click)="actualizar('Proceso')" name="estado">
+</label>
+<label class="">Cancelado
+    <input type="radio" (click)="actualizar('cancelado')" name="estado">
+</label>
+</div>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Foto</th>
+    </tr>
+    <tr *ngFor="let item of lista">
+        <td>{{item.cliente}}</td>
+        <td>{{item.fecha.toDate()|date:'dd/MM/YYYY HH:mm:ss'}}</td>
+        <td>
+        <table class="table">
+            <tr>
+                <th>Moto</th>
+                <th>Producto</th>
+                <th>cant</th>
+                <th>precio</th>
+                <th>importe</th>
+                
+            </tr>
+            <tr *ngFor="let prod of item.detalle">
+                <td>{{prod.moto}}</td>
+                <td>{{prod.producto.nombre}}</td>
+                <td>{{prod.cantidad}}</td>
+                <td>{{prod.producto.precio}}</td>
+                <td>{{prod.importe}}</td>
+                
+            </tr>
+        </table>
+            </td>
+        <td>{{item.total}}</td>
+        
+        <td *ngIf="item.estado=='pendiente'">
+            <a href="#"  (click)="atender($event,item)" >
+            <i class="swal2-icon-content"></i>
+            Atender
+            </a>
+        </td>
+        <td *ngIf="item.estado=='pendiente'">
+            <a href="#"  (click)="borrar($event,item)" >
+            <i class="bi bi-square"></i>
+            Cancelar
+            </a>
+        </td>
+    </tr>
+</table> 
+

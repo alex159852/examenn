@@ -1,0 +1,20 @@
+<form  >
+    <div class="bd-example">
+        <div class="form-floating mb-3">
+            <input name="nombre" type="text" [(ngModel)]="item.nombre" class="form-control" id="nombreInput" placeholder="Nombre">
+            <label for="nombreInput">Nombre</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input name="placa" type="text" [(ngModel)]="item.placa" class="form-control" id="placaInput" placeholder="Placa">
+            <label for="placaInput">Placa</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input name="modelo" type="text" [(ngModel)]="item.modelo" class="form-control" id="modeloInput" placeholder="Modelo">
+            <label for="modeloInput">Modelo</label>
+        </div>
+       
+    </div>
+    <button type="button" (click)="salir()" class="btn btn-warning">Cancelar</button>
+    <button type="button" (click)="enviar()" class="btn btn-success">Guardar</button>
+
+</form>

@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>PEDIDOS ACEPTADOS</ion-label>
+  <ion-list>
+    <ion-item *ngFor="let item of lista" (click)="opendetaill(item)">
+      <ion-label>Bs. {{item.total}}</ion-label>
+      <ion-label>{{item.fecha.toDate()|date:'dd/MM/YYYY HH:mm:ss'}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
